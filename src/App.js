@@ -142,6 +142,13 @@ const App = () => {
     p: { color: '#1890ff' }
   }
 
+  function sortNotesAlphabetically(notes) {
+    return [...notes].sort((a, b) =>
+  a.name.localeCompare(b.name));
+  }
+
+  const alphabeticalNotes = sortNotesAlphabetically(state.notes)
+
   function renderItem(item) {
     return (
       <List.Item 
@@ -186,7 +193,7 @@ const App = () => {
 
       <List
         loading={state.loading}
-        dataSource={state.notes}
+        dataSource={alphabeticalNotes}
         renderItem={renderItem}
       />
     </div>
