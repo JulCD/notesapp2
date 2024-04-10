@@ -127,7 +127,7 @@ const App = () => {
     })
       .subscribe({
         next: noteData => {
-          const note = noteData.value.data.onCreateNote
+          const note = noteData.data.onCreateNote
           if (CLIENT_ID === note.clientId) return
           dispatch({ type: 'ADD_NOTE', note})
         }
